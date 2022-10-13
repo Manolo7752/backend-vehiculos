@@ -13,7 +13,7 @@ server.app.use(bodyParser.urlencoded({extended:true}));
 server.app.use('/',defaultRoutes);
 server.app.use('/vehiculos',vehiculoRoutes);
 
-mongoose.connect('mongodb://localhost:27017/autosdb',(error)=>{
+mongoose.connect('mongodb+srv://usr_vehiculos:vehiculos2022@cluster0.3izzg9s.mongodb.net/autosdb',(error)=>{
     if(error){
         throw error;
     }

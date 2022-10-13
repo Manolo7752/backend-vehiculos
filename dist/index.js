@@ -13,7 +13,7 @@ server.app.use(body_parser_1.default.json());
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use('/', defaul_routes_1.default);
 server.app.use('/vehiculos', vehiculo_routes_1.default);
-mongoose_1.default.connect('mongodb://localhost:27017/autosdb', (error) => {
+mongoose_1.default.connect('mongodb+srv://usr_vehiculos:vehiculos2022@cluster0.3izzg9s.mongodb.net/autosdb', (error) => {
     if (error) {
         throw error;
     }
