@@ -8,7 +8,15 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const server_1 = __importDefault(require("./classes/server"));
 const defaul_routes_1 = __importDefault(require("./routes/defaul.routes"));
 const vehiculo_routes_1 = __importDefault(require("./routes/vehiculo.routes"));
+const express_1 = __importDefault(require("express"));
+const app = (0, express_1.default)();
 const server = new server_1.default();
+server.app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requeted-With,content-type');
+    next();
+});
 server.app.use(body_parser_1.default.json());
 server.app.use(body_parser_1.default.urlencoded({ extended: true }));
 server.app.use('/', defaul_routes_1.default);

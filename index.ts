@@ -3,8 +3,21 @@ import mongoose from "mongoose";
 import Server from "./classes/server";
 import defaultRoutes from "./routes/defaul.routes";
 import vehiculoRoutes from "./routes/vehiculo.routes";
+import core from "cors";
+import express from "express";
 
+const app =express();
 const server = new Server();
+
+server.app.use(function(req,res,next){
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,DELETE');
+    res.setHeader('Access-Control-Allow-Headers','X-Requeted-With,content-type');
+    next();
+    
+});
+
+
 
 server.app.use(bodyParser.json());
 server.app.use(bodyParser.urlencoded({extended:true}));
